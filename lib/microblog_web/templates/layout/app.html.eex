@@ -61,11 +61,22 @@
         </div>
 </div>
 
+<%= if @user do %>
+  <div class="row">
+    <div class="col-sm-8">
+      <%= render @view_module, @view_template, assigns %>
+    </div>
+    <div class="col-sm-4">
+      <%= render MicroblogWeb.MessageView, "show.html", assigns %>
+    </div>
+  </div>
+<% else %>
   <div class="row">
     <div class="col-sm-12">
       <%= render @view_module, @view_template, assigns %>
     </div>
   </div>
+<% end %>
 
 
 </div> <!-- /container -->
